@@ -6,8 +6,8 @@ def sentence_to_vector(model, tokenizer, sentence):
     tokens = tokenizer(sentence, add_special_tokens=True)["input_ids"]
     input = torch.tensor(tokens).unsqueeze(0)
     with torch.no_grad():
-        outputs = model(input)
-        last_hidden_state = outputs[0]
+        outputs = model(input, output_hidden_states=True)
+        last_hidden_state = outputs[0][:, 0, :]
         averaged_hidden_state = last_hidden_state.mean(dim=0).unsqueeze(0)
     return averaged_hidden_state
 
