@@ -39,9 +39,10 @@ def connect_to_endpoint(url, headers, params, next_token=None):
 
 bearer_token = auth()
 headers = create_headers(bearer_token)
-keyword = "#tama954 -is:retweet"
-start_date = "2023-01-11T04:00:00.000Z"
-end_date = "2023-01-11T06:35:00.000Z"
+# keyword = "#annkw -is:retweet"
+keyword = "#annkw"
+start_date = "2023-01-21T16:00:00.000Z"
+end_date = "2023-01-21T18:05:00.000Z"
 max_results = 200
 total_tweets = 0
 JST = datetime.timezone(datetime.timedelta(hours=+9), "JST")
