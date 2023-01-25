@@ -46,13 +46,14 @@ def append_to_csv(json_response, fileName):
         created_at = dateutil.parser.parse(
             c_a).astimezone(JST).replace(tzinfo=None)
         text = json_response["data"][i]["text"].replace("\n", " ")
+        tweet_id = json_response["data"][i]["id"]
         author_id = json_response["data"][i]["author_id"]
         retweet_count = json_response["data"][i]['public_metrics']['retweet_count']
         like_count = json_response["data"][i]['public_metrics']['like_count']
         for i, d in enumerate(json_response["includes"]["users"]):
             if d["id"] == author_id:
                 username = json_response["includes"]["users"][i]["username"]
-        res = [created_at, text, author_id,
+        res = [created_at, tweet_id, text, author_id,
                username, like_count, retweet_count]
         csvWriter.writerow(res)
     csvFile.close()
@@ -79,11 +80,9 @@ def main():
     fileName = "tweet" + str(dt_now.strftime("%y%m%d_%H%M%S")) + ".csv"
     csvFile = open(fileName, "a", newline="", encoding="utf-8")
     csvWriter = csv.writer(csvFile)
-    csvWriter.writerow(["created_at", "text", "author_id",
+    csvWriter.writerow(["created_at", "tweet_id", "text", "author_id",
                        "username", "like_count", "retweet_count"])
     csvFile.close()
-
-    append_to_csv(json_response, fileName)
 
     count = 0
     flag = True
