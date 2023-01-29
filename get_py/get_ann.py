@@ -68,8 +68,8 @@ def main():
     # keyword = "#ナインティナインANN -is:retweet"
     # keyword = "#霜降り明星ANN -is:ret
     keyword = "#annkw -is:retweet"
-    start_date = "2023-01-21T16:00:00.000Z"
-    end_date = "2023-01-21T18:05:00.000Z"
+    start_date = "2022-12-17T16:00:00.000Z"
+    end_date = "2022-12-17T18:05:00.000Z"
     max_results = 200
     total_tweets = 0
 
