@@ -62,8 +62,8 @@ def main():
     bearer_token = auth()
     headers = create_headers(bearer_token)
     keyword = "#THETRAD -is:retweet"
-    start_date = "2023-01-19T06:00:00.000Z"
-    end_date = "2023-01-19T07:55:00.000Z"
+    start_date = "2022-02-01T06:00:00.000Z"
+    end_date = "2022-02-01T07:55:00.000Z"
     max_results = 200
     total_tweets = 0
 
